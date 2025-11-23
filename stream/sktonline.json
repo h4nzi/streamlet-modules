@@ -1,0 +1,44 @@
+{
+  "id": "sktonline",
+  "media": ["movies", "series"],
+  "type": ["stream"],
+  "name": "SKTOnline",
+  "website": "https://sktorrent.eu/",
+  "repository": "https://raw.githubusercontent.com/h4nzi/streamlet-modules/main/stream/sktonline.json",
+  "author": "jkmh",
+  "version": "1.0.0",
+  "description": "SKTOnline stream provider - Czech streaming service for movies and series.",
+  "baseUrl": "https://online.sktorrent.eu",
+  "responseFormat": "scraper",
+  "headers": {
+    "accept": "application/json",
+    "accept-language": "cs,en;q=0.9",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
+    "origin": "https://online.sktorrent.eu",
+    "referer": "https://online.sktorrent.eu/",
+    "x-requested-with": "XMLHttpRequest"
+  },
+  "scraper": [
+    {
+      "name": "Vyhledávání souborů",
+      "type": "stream_search",
+      "url": "/search/videos?search_query={title}",
+      "mapping": {
+        "id": "regex(attribute(a, href), '/([^/]+)/([a-f0-9]+)$', 2)",
+        "name": "selector(span)",
+        "type": "video",
+        "size": "regex(selector(a), '([0-9.,]+\\s*[KMGT]?B)', 1)",
+        "ratingUp": "regex(selector(a), '\\s+([0-9]+)\\s*$', 1)",
+        "link": "attribute(a, href)"
+      }
+    },
+    {
+      "name": "Přesměrování na video stránku",
+      "type": "link",
+      "url": "{link}",
+      "mapping": {
+        "link": "url"
+      }
+    }
+  ]
+}

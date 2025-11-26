@@ -7,6 +7,7 @@
   "media": ["movies", "series"],
   "type": ["stream"],
   "website": "http://nahnoji.cz",
+  "repository": "https://raw.githubusercontent.com/h4nzi/streamlet-modules/main/stream/nahnoji.json",
   "baseUrl": "http://nahnoji.cz",
   "responseFormat": "scraper",
 

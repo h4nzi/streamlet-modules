@@ -27,16 +27,14 @@
         "img": "selector(img)",
         "link": "attribute(a, href)"
       }
-	{
-	  "name": "Získání stream linku",
-	  "type": "link",
-	  "url": "{link}?do=download",
-	  "mapping": {
-		"link": "url"
-	  }
-	}
-
-
+    },
+    {
+      "name": "Získání stream linku",
+      "type": "link",
+      "url": "{link}?do=download",
+      "mapping": {
+        "link": "url"
+      }
+    }
   ]
-  
 }

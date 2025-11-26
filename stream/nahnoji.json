@@ -1,0 +1,33 @@
+{
+  "id": "nahnoji",
+  "name": "NaHnoji",
+  "version": "1.0.0",
+  "author": "jkmh",
+  "description": "NaHnoji.cz – streamovací modul",
+  "media": ["movies", "series"],
+  "type": ["stream"],
+  "website": "http://nahnoji.cz",
+  "baseUrl": "http://nahnoji.cz",
+  "responseFormat": "scraper",
+
+  "scraper": [
+    {
+      "name": "Vyhledávání",
+      "type": "stream_search",
+      "url": "/hledej?q={title}",
+      "mapping": {
+        "id": "regex(attribute(a, href), 'id=([0-9]+)', 1)",
+        "name": "selector(div.name)",
+        "type": "video",
+        "img": "attribute(img, src)",
+        "link": "attribute(a, href)"
+      }
+    },
+
+    {
+      "name": "Přímý stream",
+      "type": "stream",
+      "url": "http://nahnoji.cz/data.mp4?id=6292&s=638995346175640040&k=9fdafd78af3e3bedcd3319e6f785386b"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "prehraj-to",
+  "media": ["movies", "series"],
+  "type": ["stream"],
+  "name": "Přehraj.to",
+  "website": "https://prehraj.to/",
+  "repository": "https://streamlet.info/repo_v3/stream/prehraj-to.json",
+  "author": "AnyoneCanCode",
+  "version": "1.0.0",
+  "description": "Přehraj.to stream provider for movies and series - Czech streaming service.",
+  "baseUrl": "https://prehraj.to",
+  "responseFormat": "scraper",
+  "headers": {
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    "accept-language": "cs,en;q=0.5",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+  },
+  "scraper": [
+    {
+      "name": "Vyhledávání souborů",
+      "type": "stream_search",
+      "url": "/hledej/{title}",
+      "mapping": {
+        "id": "regex(attribute(a, href), '/([^/]+)/([a-f0-9]+)$', 2)",
+        "name": "selector(h3)",
+        "type": "video",
+        "size": "regex(selector(a), '([0-9.,]+\\s*[KMGT]?B)', 1)",
+        "ratingUp": "regex(selector(a), '\\s+([0-9]+)\\s*$', 1)",
+        "link": "attribute(a, href)"
+      }
+    },
+    {
+      "name": "Získání stream linku",
+      "type": "link",
+      "url": "{link}?do=download",
+      "mapping": {
+        "link": "url"
+      }
+    }
+  ]
+}

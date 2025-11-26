@@ -4,7 +4,7 @@
   "type": ["stream"],
   "name": "Přehraj.to",
   "website": "https://prehraj.to/",
-  "repository": "https://streamlet.info/repo_v3/stream/prehraj-to.json",
+  "repository": "https://raw.githubusercontent.com/h4nzi/streamlet-modules/main/stream/sktonline.json",
   "author": "AnyoneCanCode",
   "version": "1.0.0",
   "description": "Přehraj.to stream provider for movies and series - Czech streaming service.",

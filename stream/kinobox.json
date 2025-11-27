@@ -1,0 +1,105 @@
+{
+  "id": "kinobox",
+  "media": ["movies", "series"],
+  "type": ["catalogues", "details"],
+  "name": "Kinobox.cz",
+  "website": "https://www.kinobox.cz",
+  "version": "1.0.0",
+  "repository": "https://raw.githubusercontent.com/h4nzi/streamlet-modules/main/stream/kinobox.json",
+  "description": "Česká filmová databáze s recenzemi, hodnoceními a informacemi o filmech a seriálech",
+  "baseUrl": "https://www.kinobox.cz",
+  "responseFormat": "scraper",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+  
+  "scraper": [
+    {
+      "name": "{popularMovies}",
+      "type": "catalogue_popular_movies",
+      "url": "/filmy/trendy?page={page}",
+      "elements": {
+        "id": "regex(attribute(a, href), '/film/(\\d+)', 1)",
+        "title": "selector(.FilmPreviewItem_content__MVcYC strong)",
+        "poster": "attribute(.FilmPreviewItem_poster__QXKo_ img, src)",
+        "rating": "regex(selector(.Score_container__eAKcX div), '(\\d+)', 1)"
+      }
+    },
+    {
+      "name": "{newMovies}",
+      "type": "catalogue_new_movies",
+      "url": "/filmy/novinky?page={page}",
+      "elements": {
+        "id": "regex(attribute(a, href), '/film/(\\d+)', 1)",
+        "title": "selector(.FilmPreviewItem_content__MVcYC strong)",
+        "poster": "attribute(.FilmPreviewItem_poster__QXKo_ img, src)",
+        "rating": "regex(selector(.Score_container__eAKcX div), '(\\d+)', 1)"
+      }
+    },
+    {
+      "name": "{popularSeries}",
+      "type": "catalogue_popular_series",
+      "url": "/serialy/trendy?page={page}",
+      "elements": {
+        "id": "regex(attribute(a, href), '/film/(\\d+)', 1)",
+        "title": "selector(.FilmPreviewItem_content__MVcYC strong)",
+        "poster": "attribute(.FilmPreviewItem_poster__QXKo_ img, src)",
+        "rating": "regex(selector(.Score_container__eAKcX div), '(\\d+)', 1)"
+      }
+    },
+    {
+      "name": "{newSeries}",
+      "type": "catalogue_new_series",
+      "url": "/serialy/novinky?page={page}",
+      "elements": {
+        "id": "regex(attribute(a, href), '/film/(\\d+)', 1)",
+        "title": "selector(.FilmPreviewItem_content__MVcYC strong)",
+        "poster": "attribute(.FilmPreviewItem_poster__QXKo_ img, src)",
+        "rating": "regex(selector(.Score_container__eAKcX div), '(\\d+)', 1)"
+      }
+    },
+    {
+      "name": "{movieDetail}",
+      "type": "movie_detail",
+      "url": "/film/{id}",
+      "elements": {
+        "title": "selector(h1 a)",
+        "originalTitle": "regex(selector(script[type='application/ld+json']), '\"name\":\"([^\"]+)\"', 1)",
+        "year": "regex(selector(.FilmLayout_metadata__7nnz4 a), '(\\d{4})', 1)",
+        "duration": "regex(selector(.FilmLayout_metadata__7nnz4 span), '(\\d+)h\\s+(\\d+)m', 0)",
+        "rating": "regex(selector(.Score_container__eAKcX div), '(\\d+)', 1)",
+        "poster": "attribute(.PosterSection_poster__JZB0j img, src)",
+        "description": "selector(.ShowMore_container__P4vGZ div div div)",
+        "genres": "selectorAll(.FilmPageOverviewContainer_genres__ufLpR a button div)",
+        "director": "selector(.FilmPageOverviewContainer_castInfo__aPQjG div:nth-child(1) div:nth-child(2) a)",
+        "cast": "selectorAll(.CastItem_container__hzzP4 h4)"
+      }
+    },
+    {
+      "name": "{seriesDetail}",
+      "type": "series_detail",
+      "url": "/film/{id}",
+      "elements": {
+        "title": "selector(h1 a)",
+        "originalTitle": "regex(selector(script[type='application/ld+json']), '\"name\":\"([^\"]+)\"', 1)",
+        "year": "regex(selector(.FilmLayout_metadata__7nnz4 a), '(\\d{4})', 1)",
+        "rating": "regex(selector(.Score_container__eAKcX div), '(\\d+)', 1)",
+        "poster": "attribute(.PosterSection_poster__JZB0j img, src)",
+        "description": "selector(.ShowMore_container__P4vGZ div div div)",
+        "genres": "selectorAll(.FilmPageOverviewContainer_genres__ufLpR a button div)",
+        "director": "selector(.FilmPageOverviewContainer_castInfo__aPQjG div:nth-child(1) div:nth-child(2) a)",
+        "cast": "selectorAll(.CastItem_container__hzzP4 h4)"
+      }
+    },
+    {
+      "name": "{search}",
+      "type": "search",
+      "url": "/vyhledavani?q={query}",
+      "elements": {
+        "id": "regex(attribute(a, href), '/film/(\\d+)', 1)",
+        "title": "selector(.FilmPreviewItem_content__MVcYC strong)",
+        "poster": "attribute(.FilmPreviewItem_poster__QXKo_ img, src)",
+        "rating": "regex(selector(.Score_container__eAKcX div), '(\\d+)', 1)",
+        "year": "regex(selector(.FilmPreviewItem_content__MVcYC), '\\((\\d{4})\\)', 1)"
+      }
+    }
+  ]
+}

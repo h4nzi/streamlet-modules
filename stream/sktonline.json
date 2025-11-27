@@ -1,10 +1,10 @@
 {
-  "id": "sktonline",
+  "id": "sktorrent",
   "media": ["movies", "series"],
   "type": ["stream"],
-  "name": "SKTOnline",
+  "name": "SKTorrent",
   "website": "https://online.sktorrent.eu/",
-  "repository": "https://raw.githubusercontent.com/h4nzi/streamlet-modules/master/sktonline.json",
+  "repository": "https://raw.githubusercontent.com/h4nzi/streamlet-modules/master/stream/sktorrent.json",
   "author": "jkmh",
   "version": "1.0.2",
   "description": "SKTOnline stream provider - Czech streaming service for movies and series.",

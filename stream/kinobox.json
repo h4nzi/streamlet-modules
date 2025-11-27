@@ -5,7 +5,7 @@
   "name": "Kinobox.cz",
   "website": "https://www.kinobox.cz",
   "version": "1.0.0",
-  "repository": "https://raw.githubusercontent.com/h4nzi/streamlet-modules/main/stream/kinobox.json",
+  "repository": "https://raw.githubusercontent.com/h4nzi/streamlet-modules/master/stream/kinobox.json",
   "description": "Česká filmová databáze s recenzemi, hodnoceními a informacemi o filmech a seriálech",
   "baseUrl": "https://www.kinobox.cz",
   "responseFormat": "scraper",

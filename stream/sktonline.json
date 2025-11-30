@@ -1,0 +1,40 @@
+{
+  "id": "sktonline",
+  "media": ["movies", "series"],
+  "type": ["catalogues", "details"],,
+  "name": "SKTOnline",
+  "website": "https://sktorrent.eu/",
+  "repository": "https://raw.githubusercontent.com/h4nzi/streamlet-modules/master/stream/sktonline.json",
+  "author": "jkmh",
+  "version": "1.0.2",
+  "description": "SKTOnline stream provider - Czech streaming service for movies and series.",
+  "baseUrl": "https://onlime.sktorrent.eu",
+  "responseFormat": "scraper",
+  "headers": {
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    "accept-language": "cs,en;q=0.5",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+  },
+  "scraper": [
+    {
+      "name": "Vyhledávání souborů",
+      "type": "stream_search",
+      "url": "/?action=search&query={title}",
+      "mapping": {
+        "id": "regex(attribute(a, href), '/video/([0-9]+)/', 1)",
+        "name": "selector(span.video-title)",
+        "type": "video",
+        "img": "selector(img)",
+        "link": "attribute(a, href)"
+      }
+    },
+    {
+      "name": "link",
+      "type": "link",
+      "url": "{link}?do=download",
+      "mapping": {
+        "link": "url"
+      }
+    }
+  ]
+}

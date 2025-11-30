@@ -3,7 +3,7 @@
   "media": ["movies", "series"],
   "type": ["catalogues", "details"],
   "name": "SKTOnline",
-  "website": "https://sktorrent.eu/",
+  "website": "https://online.sktorrent.eu/",
   "repository": "https://raw.githubusercontent.com/h4nzi/streamlet-modules/master/stream/sktonline.json",
   "author": "jkmh",
   "version": "1.0.2",

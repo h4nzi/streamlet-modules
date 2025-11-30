@@ -4,7 +4,7 @@
   "type": ["stream"],
   "name": "Přehraj.to",
   "website": "https://prehraj.to/",
-  "repository": "https://raw.githubusercontent.com/h4nzi/streamlet-modules/main/master/prehraj-to.json",
+  "repository": "https://raw.githubusercontent.com/h4nzi/streamlet-modules/master/prehraj-to.json",
   "author": "AnyoneCanCode",
   "version": "1.0.0",
   "description": "Přehraj.to stream provider for movies and series - Czech streaming service.",

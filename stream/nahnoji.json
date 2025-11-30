@@ -24,11 +24,10 @@
         "link": "attribute(a, href)"
       }
     },
-
     {
       "name": "Přímý stream",
       "type": "stream",
-      "url": "{link}?do=download",
+      "url": "{link}?do=download"
     }
   ]
 }

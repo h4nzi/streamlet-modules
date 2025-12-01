@@ -16,7 +16,7 @@
       "name": "{popularMovies}",
       "type": "catalogue_popular_movies",
       "url": "/filmy/trendy?page={page}",
-      "elements": {
+      "mapping": {
         "id": "regex(attribute(a, href), '/film/(\\d+)', 1)",
         "title": "selector(.FilmPreviewItem_content__MVcYC strong)",
         "poster": "attribute(.FilmPreviewItem_poster__QXKo_ img, src)",
@@ -27,7 +27,7 @@
       "name": "{newMovies}",
       "type": "catalogue_new_movies",
       "url": "/filmy/novinky?page={page}",
-      "elements": {
+      "mapping": {
         "id": "regex(attribute(a, href), '/film/(\\d+)', 1)",
         "title": "selector(.FilmPreviewItem_content__MVcYC strong)",
         "poster": "attribute(.FilmPreviewItem_poster__QXKo_ img, src)",
@@ -38,7 +38,7 @@
       "name": "{popularSeries}",
       "type": "catalogue_popular_series",
       "url": "/serialy/trendy?page={page}",
-      "elements": {
+      "mapping": {
         "id": "regex(attribute(a, href), '/film/(\\d+)', 1)",
         "title": "selector(.FilmPreviewItem_content__MVcYC strong)",
         "poster": "attribute(.FilmPreviewItem_poster__QXKo_ img, src)",
@@ -49,7 +49,7 @@
       "name": "{newSeries}",
       "type": "catalogue_new_series",
       "url": "/serialy/novinky?page={page}",
-      "elements": {
+      "mapping": {
         "id": "regex(attribute(a, href), '/film/(\\d+)', 1)",
         "title": "selector(.FilmPreviewItem_content__MVcYC strong)",
         "poster": "attribute(.FilmPreviewItem_poster__QXKo_ img, src)",
@@ -60,7 +60,7 @@
       "name": "{movieDetail}",
       "type": "movie_detail",
       "url": "/film/{id}",
-      "elements": {
+      "mapping": {
         "title": "selector(h1 a)",
         "originalTitle": "regex(selector(script[type='application/ld+json']), '\"name\":\"([^\"]+)\"', 1)",
         "year": "regex(selector(.FilmLayout_metadata__7nnz4 a), '(\\d{4})', 1)",
@@ -77,7 +77,7 @@
       "name": "{seriesDetail}",
       "type": "series_detail",
       "url": "/film/{id}",
-      "elements": {
+      "mapping": {
         "title": "selector(h1 a)",
         "originalTitle": "regex(selector(script[type='application/ld+json']), '\"name\":\"([^\"]+)\"', 1)",
         "year": "regex(selector(.FilmLayout_metadata__7nnz4 a), '(\\d{4})', 1)",
@@ -93,7 +93,7 @@
       "name": "{search}",
       "type": "search",
       "url": "/vyhledavani?q={query}",
-      "elements": {
+      "mapping": {
         "id": "regex(attribute(a, href), '/film/(\\d+)', 1)",
         "title": "selector(.FilmPreviewItem_content__MVcYC strong)",
         "poster": "attribute(.FilmPreviewItem_poster__QXKo_ img, src)",

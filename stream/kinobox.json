@@ -15,6 +15,8 @@
     {
       "name": "{popularMovies}",
       "type": "catalogue_popular_movies",
+      "mediaType": "movie",
+      "isHome": true,
       "url": "/filmy/trendy?page={page}",
       "mapping": {
         "id": "regex(attribute(a, href), '/film/(\\d+)', 1)",
@@ -26,6 +28,8 @@
     {
       "name": "{newMovies}",
       "type": "catalogue_new_movies",
+      "mediaType": "movie",
+      "isHome": true,
       "url": "/filmy/novinky?page={page}",
       "mapping": {
         "id": "regex(attribute(a, href), '/film/(\\d+)', 1)",
@@ -37,6 +41,8 @@
     {
       "name": "{popularSeries}",
       "type": "catalogue_popular_series",
+      "mediaType": "series",
+      "isHome": true,
       "url": "/serialy/trendy?page={page}",
       "mapping": {
         "id": "regex(attribute(a, href), '/film/(\\d+)', 1)",
@@ -48,6 +54,8 @@
     {
       "name": "{newSeries}",
       "type": "catalogue_new_series",
+      "mediaType": "series",
+      "isHome": true,
       "url": "/serialy/novinky?page={page}",
       "mapping": {
         "id": "regex(attribute(a, href), '/film/(\\d+)', 1)",
@@ -59,6 +67,8 @@
     {
       "name": "{movieDetail}",
       "type": "movie_detail",
+      "mediaType": "movie",
+      "isHome": true,
       "url": "/film/{id}",
       "mapping": {
         "title": "selector(h1 a)",
@@ -76,6 +86,8 @@
     {
       "name": "{seriesDetail}",
       "type": "series_detail",
+      "mediaType": "movie",
+      "isHome": true,
       "url": "/film/{id}",
       "mapping": {
         "title": "selector(h1 a)",
